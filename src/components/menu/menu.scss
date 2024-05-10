@@ -1,0 +1,118 @@
+.menu {
+    // Общие стили для меню 
+    height: 59.5px;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+    transition: top 2s ease;
+    @media (max-width: 1023px) {
+        display: block;
+        position: absolute;
+        width: 100%;
+        border: 0;
+        top: 0;
+        height: 59.5px;
+        z-index: 3;
+        .container {
+            height: 100%;
+        }
+    }
+    // Стили для активного состояния меню
+    &_active {
+        position: fixed;
+        height: 100vh;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        .container {
+            position: relative;
+            width: 85.3%;
+            margin: 0;
+        }
+    }
+    &_nav {
+        // Стили для навигации 
+        height: 57.5px;
+        display: flex;
+        justify-content: center;
+        @media (max-width: 1023px) {
+            position: fixed;
+            width: 85.3%;
+            height: 100vh;
+            left: -100%;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: #FFFFFF;
+            transition: all 0.6s;
+            padding-top: 5rem;
+        }
+        &_active {
+            left: 0;
+        }
+    }
+    &_list {
+        // Стили для списка элементов меню
+        display: flex;
+        height: 100%;
+        column-gap: 2rem;
+        @media (max-width: 1023px) {
+            flex-direction: column;
+            row-gap: 1rem;
+            width: 100%;
+            height: unset;
+            margin-bottom: 1rem;
+            padding: 0 1.25rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e9e9e9;
+        }
+    }
+    &_item {
+        // Стили для элементов меню
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        &:hover .dropdown {
+            display: flex;
+        }
+        @media (max-width: 1023px) {
+            height: 40px;
+            align-items: flex-start;
+            border-bottom: 1px solid #e9e9e9;
+        }
+    }
+    &_link {
+        display: flex;
+        align-items: center;
+        column-gap: 0.25rem;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1;
+        color: #000;
+        &:after {
+            content: '';
+            display: block;
+            height: 6px;
+            width: 10px;
+            background: url('../../icons/arrow-down.svg') center center/cover no-repeat;
+        }
+    }
+    &_btn {
+        margin-left: 2rem;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1;
+        color: #000;
+        @media (max-width: 1023px) {
+            margin-left: 1.25rem;
+        }
+    }
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background-color: #fff;
+}

@@ -1,0 +1,10 @@
+.post_list {
+    min-height: 600px;
+    padding-top: 3rem;
+    padding-bottom: 10rem;
+    &_flex {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 40px;
+    }
+}
