@@ -1,6 +1,11 @@
+@import '../../../style/variables.scss';
+
 .search {
     position: absolute;
     display: flex;
+    align-items: center;
+    height: 30px;
+    z-index: 20;
     right: 0;
     &_form {
         width: 0;
@@ -9,18 +14,49 @@
         input {
             width: 0;
             padding: 0;
-            margin: 0.3rem 0;
             box-sizing: border-box;
             border-radius: 0.25rem;
         }
         &_active {
             width: 200px;
+            height: 30px;
             input {
+                height: 100%;
                 width: 100%;
                 padding: 0.5rem;
-                margin: 0.3rem 0;
                 border: 1px solid #ccc;
             }
+            @media (max-width: 767px) {
+                width: 140px;
+            }
+            @media (max-width: 575px) {
+                position: fixed;
+                height: 130px;
+                width: 300px;
+                background: $bg-color;
+                top: 100px;
+                border-radius: 0.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                input {
+                    display: block;
+                    height: 30px;
+                    width: 80%;
+                    margin: 0 auto;
+                    margin-top: 50px;
+                }
+                .search_form_close {
+                    display: block;
+                    position: absolute;
+                    right: 0.5rem;
+                    top: 0.5rem;
+                    font-size: 1.5rem;
+                }
+                
+            }
+        }  
+        &_close {
+            display: none;
         }
     }
     img {

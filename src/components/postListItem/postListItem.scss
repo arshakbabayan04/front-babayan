@@ -1,3 +1,5 @@
+@import '../../style/variables.scss';
+
 .post {
     min-height: 429px;
     width: 360px;
@@ -13,11 +15,22 @@
     @media (max-width: 1023px) {
 		width: 340px;
 	}
+    @media (max-width: 767px) {
+        width: 380px;
+        margin-bottom: 2rem;
+        &:nth-last-child(-n+1) {
+            margin-bottom: 0;
+        }
+    }
     &_img {
         height: 230px;
         width: 360px;
         @media (max-width: 1200px) {
            height: 200px;
+        }
+        @media (max-width: 767px) {
+            height: 230px;
+            width: 100%;
         }
     }
     &_tag {
@@ -33,9 +46,12 @@
         font-weight: 700;
         font-size: 1.5rem;
         line-height: 1.25;
-        color: #000;
+        color: $text-color;
         @media (max-width: 1200px) {
             font-size: 1.25rem;
+        }
+        @media (max-width: 767px) {
+            font-size: 1.5rem;
         }
     }
     &_info_block {
@@ -46,7 +62,7 @@
             font-weight: 500;
             font-size: 0.75rem;
             line-height: 100%;
-            color: #000;
+            color: $text-color;
         }
         &_date, &_views {
             font-weight: 400;
@@ -64,5 +80,9 @@
         @media (max-width: 1200px) {
             font-size: 0.75rem;
         }
+        @media (max-width: 767px) {
+            font-size: 0.875rem;
+        }
+       
     }
 }

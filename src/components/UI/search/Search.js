@@ -8,6 +8,7 @@ const Search = (props) => {
 
     useEffect(() => {
         props.changeInputValue(inputValue);
+        // eslint-disable-next-line
     }, [inputValue])
 
     const onInputUpdate = (e) => {
@@ -17,6 +18,7 @@ const Search = (props) => {
     return ( 
         <div className="search">
             <form className={searchActive ? "search_form search_form_active" : "search_form"} action="/submit" method="post">
+                <span className="search_form_close" id="search_close" onClick={() => setSearchActive(false)}>&times;</span>
                 <input placeholder='Search' type="text" id="inputField" name="inputField" value={inputValue} onChange={onInputUpdate}/>
             </form>
             <img src={search} alt="Search" onClick={() => setSearchActive(active => !active)}/>

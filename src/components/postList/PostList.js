@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import './postList.scss';
 import usePostService from '../../services/PostService';
 import Spinner from '../UI/spinner/Spinner';
@@ -25,6 +25,7 @@ const PostList = ({inputValue}) => {
         } else {
             return posts.filter((post) => {
                 return (
+                    // Here, instead of tags or title, we can use text for filtering too
                     post.title.toLowerCase().includes(inputValue.toLowerCase()) || 
                     post.tags.toLowerCase().includes(inputValue.toLowerCase())
                 )
@@ -32,10 +33,10 @@ const PostList = ({inputValue}) => {
         }
     }, [inputValue, posts])
 
-    const onPopupOpen = (index) => {
+    const onPopupOpen = useCallback((index) => {
         setPostIndex(index);
         setPopupOpen(popupOpen => !popupOpen);
-    }
+    }, [])
 
     function renderPosts(arr) {
         const items = arr.map((item, i) => {

@@ -12,5 +12,11 @@ html {
 	@media (max-width: 1023px) {
 		width: 720px;
 	}
+	@media (max-width: 767px) {
+		width: 540px;
+	}
+	@media (max-width: 575px) {
+		width: 335px;
+	}
 }
 
